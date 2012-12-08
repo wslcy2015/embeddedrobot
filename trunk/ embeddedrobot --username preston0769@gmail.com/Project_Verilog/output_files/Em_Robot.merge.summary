@@ -1,0 +1,14 @@
+Partition Merge Status : Successful - Thu Dec 06 15:15:41 2012
+Quartus II 32-bit Version : 12.1 Build 177 11/07/2012 SJ Web Edition
+Revision Name : Em_Robot
+Top-level Entity Name : Em_Robot
+Family : Cyclone IV E
+Total logic elements : 1,043
+    Total combinational functions : 754
+    Dedicated logic registers : 673
+Total registers : 673
+Total pins : 487
+Total virtual pins : 0
+Total memory bits : 4,096
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

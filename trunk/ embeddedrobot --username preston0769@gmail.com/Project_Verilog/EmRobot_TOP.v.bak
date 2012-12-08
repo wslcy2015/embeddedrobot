@@ -1,0 +1,12 @@
+module TOP(
+		input sysclk,
+		input reset,
+		//+++++++++++ Botton +++++++++++++++++
+		input key0,
+		//+++++++++++ 7-SEG ++++++++++++++++++
+		input hex0,
+		input hex1,
+		input hex2,
+		input hex3,
+		
+		);
