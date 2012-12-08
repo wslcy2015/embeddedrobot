@@ -1,0 +1,21 @@
+module EmRobot_LCDCtrol(
+			CLOCK_50,
+			LCD_DATA,
+			LCD_RW,
+			LCD_RS,
+			LCD_EN,
+			LCD_BLON
+);
+input 			CLOCK_50;
+output [7:0] 	LCD_DATA;
+output 			LCD_RW;
+output 			LCD_RS;
+output			LCD_EN;
+output			LCD_BLON;
+
+
+reg 	[7:0] 	LCD_DATA;
+reg				LCD_RW;
+reg				LCD_RS;
+reg				LCD_EN;
+reg	clk_1k = 1'b0;

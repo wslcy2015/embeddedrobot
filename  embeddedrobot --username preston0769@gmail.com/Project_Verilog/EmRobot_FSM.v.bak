@@ -1,0 +1,16 @@
+module EmRobot_FSM(
+			sysclk,
+			rst,
+			CommandEn,
+			Cmmds
+);
+input sysclk;
+input rst;
+input CommandEn;
+input Cmmds;
+
+wire sysclk;
+wire rst;
+reg CommandEn;
+reg [4:0] Cmmds;
+

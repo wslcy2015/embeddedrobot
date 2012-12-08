@@ -1,0 +1,11 @@
+module Control_FSM(
+				// De2 board part ***************//
+				sysclk,
+				reset,
+				btns,
+				
+				// Interface part with other ****//
+				fush,
+				storecmd,
+				showDisplay
+);
