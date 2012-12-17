@@ -1,3 +1,10 @@
+//=================================================================================//
+//		File Name: FIFO
+//   	Author 	: Yuantao Zhang
+//		Version	: V0.1
+//		Date Create: 7/Dec/2012
+//================================================================================//
+
 module FIFO(
 				sysclk,
 				reset,
@@ -8,7 +15,7 @@ module FIFO(
 				FifoFull,
 				OutputData);
 parameter WIDTH=8;
-parameter DEPTH=32;
+parameter DEPTH=16;
 
 input sysclk,reset,Request,Write;
 input [WIDTH-1:0] InputData;
@@ -21,7 +28,7 @@ reg [3:0] Request_ptr,Write_ptr;
 
 reg [WIDTH-1:0] ram [DEPTH-1:0];
 
-always @(posedge sysclk)
+always @(negedge sysclk)
          if(reset)
                  begin
                     Request_ptr=0;
@@ -34,15 +41,15 @@ always @(posedge sysclk)
                         2'b00: counter=counter;
                         2'b01: begin
                                  ram[Write_ptr]=InputData;    
-                                 counter=counter+1;
-											Write_ptr=(Write_ptr==15)?0:Write_ptr+1;
+                                 counter=counter+1'b1;
+											Write_ptr=(Write_ptr==15)?0:Write_ptr+1'b1;
                                  end
                         2'b10: begin
                                  if(FifoEmp);
                                  else begin
                                  OutputData=ram[Request_ptr];
-                                 counter=counter-1;
-                                 Request_ptr=(Request_ptr==15)?0:Request_ptr+1;
+                                 counter=counter-1'b1;
+                                 Request_ptr=(Request_ptr==15)?0:Request_ptr+1'b1;
                                  end
                                  end
                         2'b11: begin
@@ -52,11 +59,11 @@ always @(posedge sysclk)
                                 begin
                                  ram[Write_ptr]=InputData;
                                  OutputData=ram[Request_ptr];
-                                 Write_ptr=(Write_ptr==15)?0:Write_ptr+1;
-                                 Request_ptr=(Request_ptr==15)?0:Request_ptr+1;
+                                 Write_ptr=(Write_ptr==15)?0:Write_ptr+1'b1;
+                                 Request_ptr=(Request_ptr==15)?0:Request_ptr+1'b1;
                                 end
                                 end
                 endcase
 assign FifoEmp=(counter==0);
-assign FifoFull=(counter==31);//I have changed from 15 to 16
+assign FifoFull=(counter==DEPTH);//I have changed from 15 to 16
 endmodule

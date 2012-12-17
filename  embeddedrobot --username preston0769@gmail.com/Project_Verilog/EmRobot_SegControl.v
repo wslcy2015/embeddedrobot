@@ -1,8 +1,15 @@
+//=================================================================================//
+//		File Name: EmRobot_SegControl
+//   	Author 	: Yuantao Zhang
+//		Version	: V0.1
+//		Date Create: 7/Dec/2012
+//================================================================================//
+
 module EmRobot_SegControl(
   input  wire     CLOCK_50,         	//System Clock 50MHZ       
   input  wire		KEY,						// Reset Key
   input  wire     Enable,					// Key to change the data
-  input  wire[11:0] Value,					// Display Data
+  input  wire[31:0] Value,					// Display Data
   output reg[6:0] Hex0,						//7-SEGs
   output reg[6:0] Hex1,
   output reg[6:0] Hex2,
@@ -14,7 +21,7 @@ module EmRobot_SegControl(
 );
  
 wire [2:0] SEG7_DIG;
-wire [7:0] SEG7_SEG;
+wire [6:0] SEG7_SEG;
 reg [31:0] DisplayData;
 
 always@(posedge CLOCK_50)
@@ -23,7 +30,7 @@ begin
 		DisplayData <=32'h0000_0000;
 		//DisplayData <=DisplayData;
 	else if(Enable)
-		DisplayData	<={Value,20'h00000};
+		DisplayData	<=Value;
 	else
 		DisplayData <=DisplayData;
 end

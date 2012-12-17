@@ -1,0 +1,10 @@
+module WirelessMode(
+			sysclk,
+			reset,
+			WirelessData
+);
+
+input sysclk;
+input reset;
+
+reg [7:0] WirelessData;

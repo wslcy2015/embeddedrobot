@@ -1,3 +1,10 @@
+//=================================================================================//
+//		File Name: SwDebounce
+//   	Author 	: Yuantao Zhang
+//		Version	: V0.1
+//		Date Create: 7/Dec/2012
+//================================================================================//
+
 module SwDebounce(input wire clk,
 			input wire X,
 		  output reg Z);
