@@ -1,3 +1,9 @@
+//=================================================================================//
+//		File Name: MUX2
+//   	Author 	: Yuantao Zhang
+//		Version	: V0.1
+//		Date Create: 7/Dec/2012
+//================================================================================//
 module MUX2(
 			select,
 			dataOne,
@@ -6,11 +12,12 @@ module MUX2(
 );
 input 	wire [7:0] dataOne;
 input 	wire [7:0] dataTwo;
-output 	wire [7:0] data;
+output 	reg  [7:0] data;
 input    wire select;
 
-if(select)
-	data = dataTwo;
-else
-	data = dataOne;
+always@(*)
+	if(select)
+		data = dataTwo;
+	else
+		data = dataOne;
 endmodule

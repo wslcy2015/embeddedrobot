@@ -1,3 +1,9 @@
+//=================================================================================//
+//		File Name: EmRobot_LCDCtrol
+//   	Author 	: Yuantao Zhang
+//		Version	: V0.1
+//		Date Create: 7/Dec/2012
+//================================================================================//
 module EmRobot_LCDCtrol(
 			CLOCK_50,
 			LCD_DATA,
@@ -28,6 +34,7 @@ reg [10:0]		counter1 = 0;
 assign LCD_BLON = 1;
 assign LCD_ON = 1;
 
+
 always@(posedge CLOCK_50)//divition to 1 khz
 if(counter == 25000)
 	begin
@@ -35,13 +42,13 @@ if(counter == 25000)
 		counter<=0;
 	end
 else
-	counter <= counter +1;
+	counter <= counter +1'b1;
 
 	
 always@(posedge clk_1k) //actual control 
 begin
 	if(counter1<1023)
-		counter1 <= counter1+1;
+		counter1 <= counter1+1'b1;
 	//else
 		//counter1 <=0;
 	casex(counter1)
@@ -83,7 +90,9 @@ begin
 				LCD_EN 		<=1'b1;
 				//ack <=1;
 			end
-			
+		
+	
+	
 		450:begin					//P
 				LCD_DATA	<=8'h50;
 				LCD_RW 	<=1'b0;
@@ -169,12 +178,16 @@ begin
 			end
 		571:LCD_EN 		<=1'b1;
 		
+		
+
 		580:begin
 				LCD_DATA	<=8'h80;
 				LCD_RW 	<=1'b0;
 				LCD_RS	<=1'b0;
 			end
 		581:LCD_EN 		<=1'b1;
+		
+		
 		590:begin
 				LCD_DATA	<=8'h4c;
 				LCD_RW 	<=1'b0;

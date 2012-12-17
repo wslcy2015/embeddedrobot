@@ -1,3 +1,9 @@
+//=================================================================================//
+//		File Name: Ctrl_CmdParse
+//   	Author 	: Yuantao Zhang
+//		Version	: V0.1
+//		Date Create: 7/Dec/2012
+//================================================================================//
 module CmdParse(
 				sysclk,
 				reset,				
@@ -7,7 +13,6 @@ module CmdParse(
 				paraCount,
 				paraNo
 );
-
 input wire sysclk;
 input wire reset;
 input wire [7:0] OpCode;
@@ -15,46 +20,42 @@ input wire [1:0] btns;
 input wire [1:0] status;
 
 output wire [7:0] paraCount;
-output reg 	[7:0] paraNo;
+output wire	[7:0] paraNo;
 
-reg [7:0]OpCode_d;
+assign paraNo = counter;
+reg [7:0] 	counter ;
+reg [7:0]	OpCodeReg;
 
-CmmdsLut lut(
-		.opcode(OpCode_d),
-		.no(paraCount)
+RobotIOLUT robotlut(
+			.selection(OpCodeReg),
+			.paraCount(paraCount)
 );
 always@(posedge sysclk)
-begin 
-	if(reset)
+if(reset)
 		begin
-			OpCode_d  <= 8'h00;
-			paraNo  	 <= 8'h00;
+			OpCodeReg  <= 8'h00;
+			counter 		<=8'h00;
 		end
-	else begin
+else begin
 		case(status)
-		2'b00:begin
-				paraNo  	 <= 8'h00;
-				end
+		2'b00:counter <= 8'h00;
 		2'b01:begin
-				paraNo  	 <= 8'h00;
 				if(btns[1])
 				begin
-				Opcode_d = Opcode;	
+						OpCodeReg <= OpCode;
+						counter   <= 8'h00;
 				end
 				end
 		2'b10:begin
-				if(btns[1])begin
-					if(paraNo>paraCount)
-						paraNo = paraNo;
-					else
-						paraNo =paraNo +1;
-				end
+				if(btns[1])
+					counter <= counter +1;
+				else
+					counter <= counter;
 				end
 		default:begin
-				Opcode_d = 8'h00;
-				paraNo = 8'h00;
+					OpCodeReg <= OpCodeReg;
+					counter <= counter+1;
 				end
 		endcase
-	end
 end
 endmodule

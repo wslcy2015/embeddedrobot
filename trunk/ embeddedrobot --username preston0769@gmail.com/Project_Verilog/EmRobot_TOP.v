@@ -1,3 +1,9 @@
+//=================================================================================//
+//		File Name: EmRobot_TOP
+//   	Author 	: Yuantao Zhang
+//		Version	: V0.1
+//		Date Create: 7/Dec/2012
+//================================================================================//
 module EmRobot_TOP(
 		input sysclk,
 		input resetKey,
@@ -32,184 +38,109 @@ module EmRobot_TOP(
 		input		       UART_RTS		
 		);
 //******************** FSM net Variables *************************************//
-wire 			FSM_EN;
-wire 	[7:0]	OpCode;
-wire 	[4:0]	Commands;
-wire 	[11:0] Value;
+wire FSM_Trans;
 
 
-//******************** Output relative Display variables **********************//
-wire 	DisplayEn;
-assign 		LEDR[16:5] 	= Value;
-assign 		LEDG			= OpCode;
-assign		Commands 	= SW[4:0];
+//******************* Communicate Variables *******************************//
+wire Com_rxFifoEmp;
+wire Com_rxFifoFull;
+wire Com_txFifoEmp;
+wire Com_txFifoFull;
+wire Com_OutputByte;
+wire Com_OutputRequest;
+wire [3:0] Com_Test;
 
-//***********************Uart relative net variables**************************//
-reg 	[7:0] txByte;
-wire	[7:0] rxByte;
+//******************* Control Variables 	********************************//
+wire Ctrl_CmdReady;
+wire [7:0] Ctrl_Cmd;
+wire Ctrl_CmdEmpty;
+wire [31:0] Ctrl_SegValue;
+wire Ctrl_Mode;
+wire Ctrl_FifoFull;
 
-wire received;
-reg  transmit;
-wire is_transmitting;
-wire is_receiving;
-wire uart_error;
-
-reg 	try_to_send;
-reg  	toSend;
-reg 	ReadFlag;
-//**************************FIFO net variables*********************************//
-wire TXFIFO_WRITE;
-wire rxFifoEmp;
-wire rxFifoFull;
-reg 	[7:0]rxInputData;
-wire [7:0]rxOutputData;
-reg rxWrite=0;
-reg rxRequest=0;
-
-wire txFifoEmp;
-wire txFifoFull;
-reg [7:0]txInputData;
-wire [7:0]txOutputData;
-reg txWrite=0;
-reg txRequest=0;
 
 //******************* inter modules control **************************//
 
-always @(posedge sysclk)
-begin
-	if(TXFIFO_WRITE)
-		begin
-		txWrite 		<= 1'b1;
-		txInputData <= OpCode;
-		end
-	else
-		txWrite 		<= 1'b0;
-end
-always @(posedge sysclk) 
-begin
-	if(reset) begin
-		txByte 		<= 8'h00;
-		transmit 	<= 0;
-		try_to_send <= 0;
-		toSend 		<= 0;
-		ReadFlag 	<= 1;
-	end else begin 
-		if(received) 
-		begin	
-			try_to_send <= 1;
-		end
-		if(!txFifoEmp&&ReadFlag)begin
-			txRequest 	<=1;
-			txByte 		<= txOutputData;
-			toSend		<=1;
-		end else begin
-			txRequest	<= 0;
-		end
-		if(!is_transmitting && toSend)begin
-			ReadFlag		<=0;
-			transmit 	<=1;
-			toSend 		<=0;
-		end else begin
-			ReadFlag 	<=1;
-			transmit 	<=0;
-			end
-	end
-end 
-SwDebounce sd(
-		.clk(sysclk),
-		.X(resetKey),
-		.Z(reset)		
-);
-SwDebounce sd1(
-		.clk(sysclk),
-		.X(btns[1]),
-		.Z(TXFIFO_WRITE)		
-);
-SwDebounce sd2(
-		.clk(sysclk),
-		.X(btns[2]),
-		.Z(FSM_EN)		
-);
+SwDebounce sd(.clk(sysclk),.X(resetKey),.Z(reset)			);
+SwDebounce sd1(.clk(sysclk),.X(btns[1]),.Z(BTN_FUSH));
+SwDebounce sd2(.clk(sysclk),.X(btns[2]),.Z(BTN_STORE)			);
+SwDebounce sd3(.clk(sysclk),.X(btns[0]),.Z(BTN_MODE)			);
 
 
-
-
+//***************** Modules interfaces *******************************//
 EmRobot_FSM fsm(
 			.sysclk(sysclk),
 			.rst(reset),
-			.CommandEn(FSM_EN),
-			.Cmmds(Commands),
-			
-			.OpCode(OpCode),
-			.SegValue(Value),
-			.FsmStatus(LEDR[17]),
-			.DisplayEn(DisplayEn)
+			//Input 
+			.CmdEmpty(Ctrl_CmdEmpty),
+			.FuncBtn(BTN_FUSH),
+			//Output
+			.Trans(FSM_Trans)
 );
-EmRobot_SegControl em_segcontrol(
-		.CLOCK_50(sysclk),
-		.KEY(reset),
-		.Enable(DisplayEn),
-		.Value(Value),
-		.Hex0(hex0),
-		.Hex1(hex1),
-		.Hex2(hex2),
-		.Hex3(hex3),
-		.Hex4(hex4),
-		.Hex5(hex5),
-		.Hex6(hex6),
-		.Hex7(hex7)
-		);	
-EmRobot_LCDCtrol em_lcdctrol(
-		.CLOCK_50(sysclk),
-		.LCD_DATA(LCD_DATA),
-		.LCD_RW(LCD_RW),
-		.LCD_RS(LCD_RS),
-		.LCD_EN(LCD_EN),
-		.LCD_BLON(LCD_BLON),
-		.LCD_ON(LCD_ON)
+EmRobot_Control control(
+					//******** De2-115 part **********//
+					.Ctrl_sysclk(sysclk),
+					.Ctrl_reset(reset),
+					.Ctrl_sw(SW),
+					.Ctrl_btns({BTN_STORE,BTN_FUSH,BTN_MODE}),
+					
+					//Interfaces with other part *******//
+					.Ctrl_ready(Ctrl_CmdReady),
+					.Ctrl_command(Ctrl_Cmd),
+					.Ctrl_empty(Ctrl_CmdEmpty),
+					.Ctrl_request(Com_OutputRequest),
+					//******** Display parameter *******//
+					.Ctrl_instanceCmd(Ctrl_SegValue),
+					.Ctrl_Mode(Ctrl_Mode),
+					.Ctrl_FifoFull(Ctrl_FifoFull)
 );
-/*EmRobot_Uart(
-				.clk(sysclk),
-				.rst_n(reset),
-				.rs232_rx(UART_RXD),
-				.rs232_tx(UART_TXD),
-				.rxbyte(rxbyte),
-				.txbyte(rxbyte),
-				.rxen(readEn),
-				.txen(writeEn)
-				);*/
-FIFO rx_fifo(
-				.sysclk(sysclk),
-				.reset(reset),
-				.Write(rxWrite),
-				.InputData(rxInputData),
-				.Request(rxRequest),
-            .FifoEmp(rxFifoEmp),
-				.FifoFull(rxFifoFull),
-				.OutputData(rxOutputData)
+
+EmRobot_Display display(
+					.sysclk(sysclk),
+					.reset(reset),
+					//**********7 Seg *************//
+					.SegValue(Ctrl_SegValue),
+					.hex0(hex0),
+					.hex1(hex1),
+					.hex2(hex2),
+					.hex3(hex3),
+					.hex4(hex4),
+					.hex5(hex5),
+					.hex6(hex6),
+					.hex7(hex7),
+					//********* LEDG ***************//
+					.LEDGValue({Ctrl_Mode,Com_Test,2'h00,Com_rxFifoEmp,Ctrl_FifoFull}),
+					.LEDG(LEDG),
+					//********* LEDR **************//
+					.LEDRValue(18'h0),
+					.LEDR(LEDR),
+					//********* LCD ***************//
+					.LCD_DATA(LCD_DATA),
+					.LCD_RW(LCD_RW),
+					.LCD_RS(LCD_RS),
+					.LCD_EN(LCD_EN),
+					.LCD_BLON(LCD_BLON),
+					.LCD_ON(LCD_ON)
 );
-FIFO tx_fifo(
-				.sysclk(sysclk),
-				.reset(reset),
-				.Write(txWrite),
-				.InputData(txInputData),
-				.Request(txRequest),
-            .FifoEmp(txFifoEmp),
-				.FifoFull(txFifoFull),
-				.OutputData(txOutputData)
+
+EmRobot_Communicate communicate(
+								.sysclk(sysclk),
+								.reset(reset),
+								//************ FIFO Status ******************//
+								.rxFifoEmp(Com_rxFifoEmp),
+								.rxFifoFull(Com_rxFifoFull),
+								.InputByte(Ctrl_Cmd),
+								.txFifoEmp(Com_txFifoEmp),
+								.txFifoFull(Com_txFifoFull),
+								.OutputByte(Com_OutputByte),
+								.OutputRequest(Com_OutputRequest),
+								
+								.RXFIFO_REQUEST(1'b0),
+								.TXFIFO_WRITE(FSM_Trans),	
+								//*********** Uart  			******************//
+								.UART_RXD(UART_RXD),
+								.UART_TXD(UART_TXD),
+								.Com_Test(Com_Test)
 );
-				
-UART uart(
-    .clk(sysclk), // The master clock for this module
-    .rst(reset), // Synchronous reset.
-    .rx(UART_RXD), // Incoming serial line
-    .tx(UART_TXD), // Outgoing serial line
-    .transmit(transmit), // Signal to transmit
-    .tx_byte(txByte), // Byte to transmit
-    .received(received), // Indicated that a byte has been received.
-    .rx_byte(rxByte), // Byte received
-    .is_receiving(is_receiving), // Low when receive line is idle.
-    .is_transmitting(is_transmitting), // Low when transmit line is idle.
-    .recv_error(uart_error) // Indicates error in receiving packet.
-    );
+
 endmodule
