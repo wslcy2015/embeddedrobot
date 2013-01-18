@@ -598,52 +598,10 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL=1" -section_id UartDetect
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ADVANCED_TRIGGER_ENTITY=basic,1," -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to "EmRobot_TOP:top|EmRobot_FSM:fsm|CommandEn" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[0] -to "EmRobot_TOP:top|EmRobot_FSM:fsm|CommandEn" -section_id UartDetect
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to CLOCK_50 -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to "EmRobot_TOP:top|SW[0]" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to "EmRobot_TOP:top|SW[1]" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[3] -to "EmRobot_TOP:top|SW[2]" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[4] -to "EmRobot_TOP:top|SwDebounce:sd1|X" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[5] -to "EmRobot_TOP:top|SwDebounce:sd1|Y" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[6] -to "EmRobot_TOP:top|SwDebounce:sd1|Z" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[7] -to "EmRobot_TOP:top|SwDebounce:sd|U" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[8] -to "EmRobot_TOP:top|SwDebounce:sd|V" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[9] -to "EmRobot_TOP:top|SwDebounce:sd|W" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[10] -to "EmRobot_TOP:top|SwDebounce:sd|WideAnd0" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[11] -to "EmRobot_TOP:top|SwDebounce:sd|X" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[12] -to "EmRobot_TOP:top|SwDebounce:sd|Y" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[13] -to "EmRobot_TOP:top|SwDebounce:sd|YY" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[14] -to "EmRobot_TOP:top|SwDebounce:sd|Z" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[15] -to "EmRobot_TOP:top|SwDebounce:sd|Z~reg0" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[16] -to "EmRobot_TOP:top|SwDebounce:sd|clk" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[17] -to "EmRobot_TOP:top|SwDebounce:sd|counter[0]" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[18] -to "EmRobot_TOP:top|SwDebounce:sd|counter[16]" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[1] -to "EmRobot_TOP:top|SW[0]" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[2] -to "EmRobot_TOP:top|SW[1]" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[3] -to "EmRobot_TOP:top|SW[2]" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[4] -to "EmRobot_TOP:top|SwDebounce:sd1|X" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[5] -to "EmRobot_TOP:top|SwDebounce:sd1|Y" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[6] -to "EmRobot_TOP:top|SwDebounce:sd1|Z" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[7] -to "EmRobot_TOP:top|SwDebounce:sd|U" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[8] -to "EmRobot_TOP:top|SwDebounce:sd|V" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[9] -to "EmRobot_TOP:top|SwDebounce:sd|W" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[10] -to "EmRobot_TOP:top|SwDebounce:sd|WideAnd0" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[11] -to "EmRobot_TOP:top|SwDebounce:sd|X" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[12] -to "EmRobot_TOP:top|SwDebounce:sd|Y" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[13] -to "EmRobot_TOP:top|SwDebounce:sd|YY" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[14] -to "EmRobot_TOP:top|SwDebounce:sd|Z" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[15] -to "EmRobot_TOP:top|SwDebounce:sd|Z~reg0" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[16] -to "EmRobot_TOP:top|SwDebounce:sd|clk" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[17] -to "EmRobot_TOP:top|SwDebounce:sd|counter[0]" -section_id UartDetect
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[18] -to "EmRobot_TOP:top|SwDebounce:sd|counter[16]" -section_id UartDetect
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=19" -section_id UartDetect
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=19" -section_id UartDetect
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=00000000000000000000000000000000000000000000000000000000000000000000000000000000" -section_id UartDetect
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=80" -section_id UartDetect
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=19588" -section_id UartDetect
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=8320" -section_id UartDetect
+set_global_assignment -name VERILOG_FILE IF_FSM.v
+set_global_assignment -name VERILOG_FILE "../DE2-115_SystemCD/DE2_115_demonstrations/DE2_115_IR/pll1.v"
+set_global_assignment -name VERILOG_FILE "../DE2-115_SystemCD/DE2_115_demonstrations/DE2_115_IR/IR_RECEIVE_Terasic.v"
 set_global_assignment -name VERILOG_FILE UART.v
 set_global_assignment -name VERILOG_FILE Fifo.v
 set_global_assignment -name VERILOG_FILE SwDebounce.v
@@ -666,4 +624,31 @@ set_global_assignment -name VERILOG_FILE WirelessMode.v
 set_global_assignment -name VERILOG_FILE EmRobot_Display.v
 set_global_assignment -name VERILOG_FILE EmRobot_Communicate.v
 set_global_assignment -name VERILOG_FILE Ctrl_BIN2BCD.v
+set_global_assignment -name VERILOG_FILE Ctrl_IRFSM.v
+set_global_assignment -name VERILOG_FILE MUX1.v
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to "EmRobot_TOP:top|EmRobot_FSM:fsm|sysclk" -section_id UartDetect
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=9" -section_id UartDetect
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=9" -section_id UartDetect
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=00000000000000000000000000000000000000000000000000" -section_id UartDetect
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=50" -section_id UartDetect
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=64941" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|received" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[0]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[1]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[3] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[2]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[4] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[3]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[5] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[4]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[6] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[5]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[7] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[6]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[8] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[7]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[0] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|received" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[1] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[0]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[2] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[1]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[3] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[2]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[4] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[3]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[5] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[4]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[6] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[5]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[7] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[6]" -section_id UartDetect
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[8] -to "EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[7]" -section_id UartDetect
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=6655" -section_id UartDetect
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

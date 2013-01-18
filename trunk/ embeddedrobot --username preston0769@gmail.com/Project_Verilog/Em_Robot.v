@@ -142,10 +142,10 @@ module Em_Robot(
     OTG_DREQ,
     OTG_DACK_N,
     OTG_FSPEED,
-    OTG_LSPEED,
+    OTG_LSPEED,*/
 	//////// IR Receiver //////////
 	IRDA_RXD,
-*/
+
 	//////// SDRAM //////////
 	DRAM_ADDR,
 	DRAM_BA,
@@ -349,10 +349,10 @@ input            [1:0]      OTG_DREQ;
 output           [1:0]      OTG_DACK_N;
 inout                       OTG_FSPEED;
 inout                       OTG_LSPEED;
-
+*/
 //////////// IR Receiver //////////
 input		          			IRDA_RXD;
-*/
+
 
 //////////// SDRAM //////////
 output		    [12:0]		DRAM_ADDR;
@@ -432,9 +432,7 @@ EmRobot_TOP top(
 		.LCD_BLON(LCD_BLON),
 		.LCD_ON(LCD_ON),
 		.UART_RXD(UART_RXD),
-		.UART_TXD(UART_TXD)
+		.UART_TXD(UART_TXD),
+		.IRDA_RXD(IRDA_RXD)
 );
-
-
-
 endmodule

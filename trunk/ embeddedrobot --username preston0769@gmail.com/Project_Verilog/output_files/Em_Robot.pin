@@ -834,7 +834,7 @@ GND                          : Y11       : gnd    :                   :         
 FL_ADDR[4]                   : Y12       : output : 2.5 V             :         : 3         : Y              
 FL_ADDR[2]                   : Y13       : output : 2.5 V             :         : 3         : Y              
 FL_ADDR[3]                   : Y14       : output : 2.5 V             :         : 3         : Y              
-RESERVED_INPUT_WITH_WEAK_PULLUP : Y15       :        :                   :         : 3         :                
+IRDA_RXD                     : Y15       : input  : 2.5 V             :         : 3         : Y              
 GPIO[5]                      : Y16       : bidir  : 2.5 V             :         : 4         : Y              
 GPIO[3]                      : Y17       : bidir  : 2.5 V             :         : 4         : Y              
 GND                          : Y18       : gnd    :                   :         :           :                

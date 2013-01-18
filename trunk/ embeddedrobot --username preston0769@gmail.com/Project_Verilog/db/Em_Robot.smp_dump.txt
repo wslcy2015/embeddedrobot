@@ -15,6 +15,29 @@ recv_state.RX_DELAY_RESTART 0 0 1 0 0 0 1
 recv_state.RX_ERROR 0 1 0 0 0 0 1 
 recv_state.RX_RECEIVED 1 0 0 0 0 0 1 
 
+State Machine - |Em_Robot|EmRobot_TOP:top|EmRobot_Control:control|IRMode:ir|IR_RECEIVE:u1|state
+Name state.IDLE state.DATAREAD state.GUIDANCE 
+state.IDLE 0 0 0 
+state.GUIDANCE 1 0 1 
+state.DATAREAD 1 1 0 
+
+State Machine - |Em_Robot|EmRobot_TOP:top|EmRobot_Control:control|IRMode:ir|IR_FSM:wfsm|nextstate
+Name nextstate.SETUP nextstate.TRANS nextstate.CMD nextstate.PARA nextstate.START 
+nextstate.START 0 0 0 0 0 
+nextstate.PARA 0 0 0 1 1 
+nextstate.CMD 0 0 1 0 1 
+nextstate.TRANS 0 1 0 0 1 
+nextstate.SETUP 1 0 0 0 1 
+
+State Machine - |Em_Robot|EmRobot_TOP:top|EmRobot_Control:control|IRMode:ir|IR_FSM:wfsm|state
+Name state.SETUP state.TRANS state.CMD state.PARA state.START state.INIT 
+state.INIT 0 0 0 0 0 0 
+state.START 0 0 0 0 1 1 
+state.PARA 0 0 0 1 0 1 
+state.CMD 0 0 1 0 0 1 
+state.TRANS 0 1 0 0 0 1 
+state.SETUP 1 0 0 0 0 1 
+
 State Machine - |Em_Robot|EmRobot_TOP:top|EmRobot_Control:control|Control_FSM:fsm|State
 Name State.DONE State.PARA State.CMD State.INIT 
 State.INIT 0 0 0 0 
