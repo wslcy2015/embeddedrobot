@@ -1,0 +1,15 @@
+module IR_FSM(
+			sysclk,
+			reset,
+			IRDATA,
+			
+			wrcmd,
+			wrdata
+);
+
+input sysclk;
+input reset;
+input IRDATA;
+
+output wrcmd;
+output wrdata;

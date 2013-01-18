@@ -35,10 +35,13 @@ module EmRobot_TOP(
 		input		       UART_RXD,
 		output		    UART_TXD,
 		output		    UART_CTS,
-		input		       UART_RTS		
+		input		       UART_RTS,
+	   //++++++++++++ IR +++++++++++++++++++++++
+		input 			IRDA_RXD
 		);
 //******************** FSM net Variables *************************************//
 wire FSM_Trans;
+wire FSM_FUSH;
 
 
 //******************* Communicate Variables *******************************//
@@ -57,6 +60,7 @@ wire Ctrl_CmdEmpty;
 wire [31:0] Ctrl_SegValue;
 wire Ctrl_Mode;
 wire Ctrl_FifoFull;
+wire CtrlWirelessFush;
 
 
 //******************* inter modules control **************************//
@@ -73,22 +77,32 @@ EmRobot_FSM fsm(
 			.rst(reset),
 			//Input 
 			.CmdEmpty(Ctrl_CmdEmpty),
-			.FuncBtn(BTN_FUSH),
+			.FuncBtn(FSM_FUSH),
 			//Output
 			.Trans(FSM_Trans)
 );
+
+MUX1 mux3(
+			.select(Ctrl_Mode),
+			.dataOne(BTN_FUSH),
+			.dataTwo(CtrlWirelessFush),
+			.data(FSM_FUSH)
+);
+
 EmRobot_Control control(
 					//******** De2-115 part **********//
 					.Ctrl_sysclk(sysclk),
 					.Ctrl_reset(reset),
 					.Ctrl_sw(SW),
 					.Ctrl_btns({BTN_STORE,BTN_FUSH,BTN_MODE}),
+					.Ctrl_ird(IRDA_RXD),
 					
 					//Interfaces with other part *******//
 					.Ctrl_ready(Ctrl_CmdReady),
 					.Ctrl_command(Ctrl_Cmd),
 					.Ctrl_empty(Ctrl_CmdEmpty),
 					.Ctrl_request(Com_OutputRequest),
+					.Ctrl_WirelessFush(CtrlWirelessFush),
 					//******** Display parameter *******//
 					.Ctrl_instanceCmd(Ctrl_SegValue),
 					.Ctrl_Mode(Ctrl_Mode),

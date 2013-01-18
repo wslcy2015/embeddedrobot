@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Sun Dec 16 13:57:54 2012
+Analysis & Synthesis Status : Successful - Wed Jan 16 15:44:51 2013
 Quartus II 32-bit Version : 12.1 Build 177 11/07/2012 SJ Web Edition
 Revision Name : Em_Robot
 Top-level Entity Name : Em_Robot
 Family : Cyclone IV E
-Total logic elements : 1,477
-    Total combinational functions : 1,061
-    Dedicated logic registers : 953
-Total registers : 953
-Total pins : 345
+Total logic elements : 1,628
+    Total combinational functions : 1,284
+    Dedicated logic registers : 1,010
+Total registers : 1010
+Total pins : 346
 Total virtual pins : 0
-Total memory bits : 9,984
+Total memory bits : 4,864
 Embedded Multiplier 9-bit elements : 0
-Total PLLs : 0
+Total PLLs : 1

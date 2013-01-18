@@ -5,7 +5,7 @@
   <instance entity_name="sld_signaltap" is_auto_node="yes" is_expanded="true" name="UartDetect" source_file="sld_signaltap.vhd">
     <node_ip_info instance_id="0" mfg_id="110" node_id="0" version="6"/>
     <position_info>
-      <single attribute="active tab" value="1"/>
+      <single attribute="active tab" value="0"/>
       <single attribute="data horizontal scroll position" value="0"/>
       <single attribute="data vertical scroll position" value="7"/>
       <single attribute="setup horizontal scroll position" value="0"/>
@@ -15,127 +15,73 @@
       <single attribute="zoom offset denominator" value="1"/>
       <single attribute="zoom offset numerator" value="130561"/>
     </position_info>
-    <signal_set global_temp="1" name="signal_set: 2012/12/07 15:57:32  #0">
-      <clock name="CLOCK_50" polarity="posedge" tap_mode="classic"/>
+    <signal_set global_temp="1" name="signal_set: 2013/01/16 15:44:31  #0">
+      <clock name="EmRobot_TOP:top|EmRobot_FSM:fsm|sysclk" polarity="posedge" tap_mode="classic"/>
       <config ram_type="M4K" reserved_data_nodes="0" reserved_storage_qualifier_nodes="0" reserved_trigger_nodes="0" sample_depth="512" trigger_in_enable="no" trigger_out_enable="no"/>
       <top_entity/>
       <signal_vec>
         <trigger_input_vec>
-          <wire name="EmRobot_TOP:top|EmRobot_FSM:fsm|CommandEn" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SW[0]" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SW[1]" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SW[2]" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd1|X" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd1|Y" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd1|Z" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|U" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|V" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|W" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|WideAnd0" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|X" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|Y" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|YY" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|Z" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|Z~reg0" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|clk" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|counter[0]" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|counter[16]" tap_mode="classic" type="register"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|received" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[0]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[1]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[2]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[3]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[4]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[5]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[6]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[7]" tap_mode="classic" type="combinatorial"/>
         </trigger_input_vec>
         <data_input_vec>
-          <wire name="EmRobot_TOP:top|EmRobot_FSM:fsm|CommandEn" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SW[0]" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SW[1]" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SW[2]" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd1|X" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd1|Y" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd1|Z" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|U" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|V" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|W" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|WideAnd0" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|X" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|Y" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|YY" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|Z" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|Z~reg0" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|clk" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|counter[0]" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|counter[16]" tap_mode="classic" type="register"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|received" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[0]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[1]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[2]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[3]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[4]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[5]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[6]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[7]" tap_mode="classic" type="combinatorial"/>
         </data_input_vec>
         <storage_qualifier_input_vec>
-          <wire name="EmRobot_TOP:top|EmRobot_FSM:fsm|CommandEn" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SW[0]" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SW[1]" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SW[2]" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd1|X" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd1|Y" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd1|Z" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|U" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|V" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|W" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|WideAnd0" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|X" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|Y" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|YY" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|Z" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|Z~reg0" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|clk" tap_mode="classic" type="combinatorial"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|counter[0]" tap_mode="classic" type="register"/>
-          <wire name="EmRobot_TOP:top|SwDebounce:sd|counter[16]" tap_mode="classic" type="register"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|received" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[0]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[1]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[2]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[3]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[4]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[5]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[6]" tap_mode="classic" type="combinatorial"/>
+          <wire name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[7]" tap_mode="classic" type="combinatorial"/>
         </storage_qualifier_input_vec>
       </signal_vec>
       <presentation>
         <data_view>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|X"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|Z"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_FSM:fsm|CommandEn"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd1|X"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd1|Y"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd1|Z"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|U"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|V"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|W"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|WideAnd0"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|Y"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|YY"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|Z~reg0"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|clk"/>
-          <bus is_signal_inverted="no" link="all" name="EmRobot_TOP:top|SwDebounce:sd|counter" order="msb_to_lsb" radix="hex" state="collapse" type="register">
-            <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|counter[16]"/>
-            <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|counter[0]"/>
-          </bus>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SW[0]"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SW[1]"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SW[2]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[0]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[1]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[2]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[3]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[4]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[5]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[6]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[7]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|received"/>
         </data_view>
         <setup_view>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|X"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|Z"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_FSM:fsm|CommandEn"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd1|X"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd1|Y"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd1|Z"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|U"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|V"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|W"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|WideAnd0"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|Y"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|YY"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|Z~reg0"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|clk"/>
-          <bus is_signal_inverted="no" link="all" name="EmRobot_TOP:top|SwDebounce:sd|counter" order="msb_to_lsb" radix="hex" state="expand" type="register">
-            <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|counter[16]"/>
-            <net is_signal_inverted="no" name="EmRobot_TOP:top|SwDebounce:sd|counter[0]"/>
-          </bus>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SW[0]"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SW[1]"/>
-          <net is_signal_inverted="no" name="EmRobot_TOP:top|SW[2]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[0]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[1]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[2]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[3]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[4]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[5]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[6]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|rx_byte[7]"/>
+          <net is_signal_inverted="no" name="EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|received"/>
         </setup_view>
       </presentation>
-      <trigger CRC="20804C84" attribute_mem_mode="false" gap_record="true" global_temp="1" name="trigger: 2012/12/07 16:05:18  #0" position="center" power_up_trigger_mode="false" record_data_gap="true" segment_size="128" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="true" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_in="dont_care" trigger_out="active high" trigger_type="circular">
+      <trigger CRC="FDAD19FF" attribute_mem_mode="false" gap_record="true" global_temp="1" name="trigger: 2013/01/16 16:03:30  #0" position="center" power_up_trigger_mode="false" record_data_gap="true" segment_size="128" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="false" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_in="dont_care" trigger_out="active high" trigger_type="circular">
         <power_up_trigger position="pre" storage_qualifier_disabled="no" trigger_in="dont_care" trigger_out="active high"/>
         <events use_custom_flow_control="no">
-          <level enabled="yes" name="condition1" type="basic">'EmRobot_TOP:top|EmRobot_FSM:fsm|CommandEn' == either edge &amp;&amp; 'EmRobot_TOP:top|SW[0]' == either edge &amp;&amp; 'EmRobot_TOP:top|SW[1]' == either edge &amp;&amp; 'EmRobot_TOP:top|SW[2]' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd1|X' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd1|Y' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd1|Z' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd|U' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd|V' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd|W' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd|WideAnd0' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd|X' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd|Y' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd|YY' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd|Z' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd|Z~reg0' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd|clk' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd|counter[0]' == either edge &amp;&amp; 'EmRobot_TOP:top|SwDebounce:sd|counter[16]' == either edge
+          <level enabled="yes" name="condition1" type="basic">'EmRobot_TOP:top|EmRobot_Communicate:communicate|UART:uart|received' == high
             <power_up enabled="yes">
             </power_up>
             <op_node/>
@@ -151,8 +97,8 @@ trigger;]]>
           </custom_flow_control>
         </events>
         <storage_qualifier_events>
-          <transitional>0000000000000000000
-            <pwr_up_transitional>0000000000000000000</pwr_up_transitional>
+          <transitional>000000000
+            <pwr_up_transitional>000000000</pwr_up_transitional>
           </transitional>
           <storage_qualifier_level type="basic">
             <power_up>
@@ -171,8 +117,8 @@ trigger;]]>
           </storage_qualifier_level>
         </storage_qualifier_events>
         <log>
-          <data global_temp="1" name="log: 2012/12/07 16:05:18  #1" power_up_mode="false" sample_depth="511" trigger_position="-1">0000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011000000000000000000100000000000000000110000000000000000001000000000000000001100000000000000000010000000000000000011</data>
-          <extradata>1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</extradata>
+          <data global_temp="1" name="log: 2013/01/16 16:10:05  #0" power_up_mode="false" sample_depth="512" trigger_position="256">011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111111111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111011111111</data>
+          <extradata>1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111T111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</extradata>
         </log>
       </trigger>
     </signal_set>
@@ -187,8 +133,9 @@ trigger;]]>
     <single attribute="instance widget visible" value="1"/>
     <single attribute="jtag widget visible" value="1"/>
     <single attribute="sof manager visible" value="0"/>
-    <multi attribute="column width" size="23" value="34,34,461,74,214,70,88,88,98,98,88,88,110,101,101,101,101,101,101,101,101,107,78"/>
+    <multi attribute="column width" size="23" value="34,34,202,74,68,70,88,88,98,98,88,88,110,101,101,101,101,101,101,101,101,107,78"/>
     <multi attribute="frame size" size="2" value="1366,706"/>
     <multi attribute="jtag widget size" size="2" value="334,120"/>
+    <single attribute="hierarchy widget height" value="95"/>
   </global_info>
 </session>
