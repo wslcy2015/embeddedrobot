@@ -1,5 +1,5 @@
 EDA Netlist Writer report for Em_Robot
-Fri Jan 04 11:27:45 2013
+Wed Jan 23 10:37:32 2013
 Quartus II 32-bit Version 12.1 Build 177 11/07/2012 SJ Web Edition
 
 
@@ -34,7 +34,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                                       ;
 +---------------------------+------------------------------------------------------+
-; EDA Netlist Writer Status ; No Output Files Generated - Fri Jan 04 11:27:45 2013 ;
+; EDA Netlist Writer Status ; No Output Files Generated - Wed Jan 23 10:37:32 2013 ;
 ; Revision Name             ; Em_Robot                                             ;
 ; Top-level Entity Name     ; Em_Robot                                             ;
 ; Family                    ; Cyclone IV E                                         ;
@@ -47,7 +47,7 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 32-bit EDA Netlist Writer
     Info: Version 12.1 Build 177 11/07/2012 SJ Web Edition
-    Info: Processing started: Fri Jan 04 11:27:44 2013
+    Info: Processing started: Wed Jan 23 10:37:31 2013
 Info: Command: quartus_eda --read_settings_files=on --write_settings_files=off Em_Robot -c Em_Robot
 Warning (20013): Ignored assignments for entity "DE2_115_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_global_assignment -name LL_ROOT_REGION ON -entity DE2_115_Default -section_id "Root Region" was ignored
@@ -76,8 +76,8 @@ Warning (20013): Ignored assignments for entity "DE2_115_Default" -- entity does
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE2_115_Default -section_id Top was ignored
 Warning (199027): Can't generate output files. Specify command-line options to generate output files, or update EDA tool settings using GUI or Tcl script.
 Info: Quartus II 32-bit EDA Netlist Writer was successful. 0 errors, 26 warnings
-    Info: Peak virtual memory: 338 megabytes
-    Info: Processing ended: Fri Jan 04 11:27:46 2013
+    Info: Peak virtual memory: 327 megabytes
+    Info: Processing ended: Wed Jan 23 10:37:33 2013
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 

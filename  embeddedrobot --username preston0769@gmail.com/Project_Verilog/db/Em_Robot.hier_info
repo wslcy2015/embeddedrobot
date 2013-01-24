@@ -1412,6 +1412,7 @@ sysclk => wrdata[4]~reg0.CLK
 sysclk => wrdata[5]~reg0.CLK
 sysclk => wrdata[6]~reg0.CLK
 sysclk => wrdata[7]~reg0.CLK
+sysclk => Forward~2.DATAIN
 sysclk => nextstate~1.DATAIN
 sysclk => state~6.DATAIN
 reset => state.OUTPUTSELECT

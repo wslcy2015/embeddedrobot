@@ -24,6 +24,7 @@ reg [7:0] wrdata;
 
 wire [7:0] InputCmd;
 reg  [7:0] TempCmd;
+
 assign InputCmd = IRDATA[23:16];
 
 
@@ -32,6 +33,7 @@ reg [39:0] CmdList;
 reg [39:0] CmdSend;
 reg  [3:0] CmdCnt;
 reg [3:0]  CntSet;
+reg [1:0]   Forward;
 
 
 
@@ -53,7 +55,9 @@ parameter UP 		= 8'h1b,
 			 LEFT 	= 8'h14,
 			 RIGHT 	= 8'h18,
 			 STOP  	= 8'h12,
-			 TEST    = 8'h0f;
+			 A		   = 8'h0f,
+			 B 		= 8'h13,
+			 C 		= 8'h10;
 			 
 always@(posedge sysclk)
 begin
@@ -75,9 +79,10 @@ begin
 			CmdList <=36'h0;
 			TempCmd <=8'h00;
 			fushcmd <= 1'b0;
+			Forward <= 2'b00;
 			end
 	SETUP:begin
-			wrdata <= 8'h83;
+			wrdata <= 8'h80;
 			wrcmd  <= 1'b1;
 			nextstate <= START;
 			CmdCnt <=4'h0;
@@ -104,37 +109,60 @@ begin
 			fushcmd <=1'b0;
 			case(TempCmd)
 				UP:  begin
-						CmdList[39:32] <= 8'h89;
-						CmdList[31:16]    <= 16'h00c8;
+						CmdList[39:32] <= 8'h91;
+						CmdList[31:0]    <= 32'h005f005f;
 						nextstate	<= CMD;
 						CntSet 		<= 4'h5;
+						Forward 		<= 2'b01;
 						end
 				DOWN: begin
-						CmdList[39:32] <= 8'h89;
-						CmdList[31:16]    <= 16'hff38;
+						CmdList[39:32] <= 8'h91;
+						CmdList[31:0]    <= 32'hffa1ffa1;
 						nextstate	<= CMD;
 						CntSet 		<= 4'h5;
+						Forward 		<= 2'b10;
 						end
 				LEFT: begin
-						CmdList[39:32] <= 8'h89;
-						CmdList[15:0] 	   <= 16'h03e8;
+						CmdList[39:32] <= 8'h91;
+						if(Forward==2'b01)
+							CmdList[31:0] <= 32'h00af005f;
+						else if(Forward == 2'b10)
+							CmdList[31:0] <= 32'hffa1ffeb;
+						else
+							CmdList[31:0] <= 32'hff800080;
 						nextstate	<= CMD;
 						CntSet 		<= 4'h5;
 						end
 				RIGHT:begin
-						CmdList[39:32] <= 8'h89;
-						CmdList[15:0]     <= 16'hfc18;
+						CmdList[39:32] <= 8'h91;
+						if(Forward==2'b01)
+							CmdList[31:0] <= 32'h005f00af;
+						else if(Forward == 2'b10)
+							CmdList[31:0] <= 32'hffbbffa1;
+						else
+							CmdList[31:0] <= 32'h0080ff80;
 						nextstate	<= CMD;
 						CntSet 		<= 4'h5;
+						TempCmd		<= 8'h00;
 						end
 				STOP: begin
-						CmdList[39:32] <= 8'h89;
+						CmdList[39:32] <= 8'h91;
 						CmdList[31:0] 		<= 32'h0;
 						nextstate	<= CMD;
 						CntSet 		<= 4'h5;
 						end
-				TEST: begin
-						CmdList[39:24] <= 16'h8805;
+				A: begin
+						CmdList[39:24] <= 16'h8080;
+						CntSet 		<= 4'h2;
+						nextstate 	<= CMD;
+						end
+				B: begin
+						CmdList[39:24] <= 16'h8083;
+						CntSet 		<= 4'h2;
+						nextstate 	<= CMD;
+						end
+				C: begin
+						CmdList[39:24] <= 16'h8084;
 						CntSet 		<= 4'h2;
 						nextstate 	<= CMD;
 						end

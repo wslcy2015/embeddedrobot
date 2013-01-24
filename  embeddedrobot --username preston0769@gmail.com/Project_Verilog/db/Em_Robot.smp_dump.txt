@@ -21,6 +21,12 @@ state.IDLE 0 0 0
 state.GUIDANCE 1 0 1 
 state.DATAREAD 1 1 0 
 
+State Machine - |Em_Robot|EmRobot_TOP:top|EmRobot_Control:control|IRMode:ir|IR_FSM:wfsm|Forward
+Name Forward.00 Forward.10 Forward.01 
+Forward.00 0 0 0 
+Forward.01 1 0 1 
+Forward.10 1 1 0 
+
 State Machine - |Em_Robot|EmRobot_TOP:top|EmRobot_Control:control|IRMode:ir|IR_FSM:wfsm|nextstate
 Name nextstate.SETUP nextstate.TRANS nextstate.CMD nextstate.PARA nextstate.START 
 nextstate.START 0 0 0 0 0 
