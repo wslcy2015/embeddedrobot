@@ -673,6 +673,7 @@ Ctrl_Mode <= mode.DB_MAX_OUTPUT_PORT_TYPE
 
 |Em_Robot|EmRobot_TOP:top|EmRobot_Control:control|FIFO:commands
 sysclk => ram.we_a.CLK
+sysclk => ram.waddr_a[4].CLK
 sysclk => ram.waddr_a[3].CLK
 sysclk => ram.waddr_a[2].CLK
 sysclk => ram.waddr_a[1].CLK
@@ -798,7 +799,7 @@ Request => Mux19.IN2
 Request => Mux20.IN2
 Request => Mux21.IN2
 FifoEmp <= Equal2.DB_MAX_OUTPUT_PORT_TYPE
-FifoFull <= Equal3.DB_MAX_OUTPUT_PORT_TYPE
+FifoFull <= <GND>
 OutputData[0] <= OutputData[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 OutputData[1] <= OutputData[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 OutputData[2] <= OutputData[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -2373,6 +2374,7 @@ Com_Test[3] <= <GND>
 
 |Em_Robot|EmRobot_TOP:top|EmRobot_Communicate:communicate|FIFO:rx_fifo
 sysclk => ram.we_a.CLK
+sysclk => ram.waddr_a[4].CLK
 sysclk => ram.waddr_a[3].CLK
 sysclk => ram.waddr_a[2].CLK
 sysclk => ram.waddr_a[1].CLK
@@ -2498,7 +2500,7 @@ Request => Mux19.IN2
 Request => Mux20.IN2
 Request => Mux21.IN2
 FifoEmp <= Equal2.DB_MAX_OUTPUT_PORT_TYPE
-FifoFull <= Equal3.DB_MAX_OUTPUT_PORT_TYPE
+FifoFull <= <GND>
 OutputData[0] <= OutputData[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 OutputData[1] <= OutputData[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 OutputData[2] <= OutputData[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -2511,6 +2513,7 @@ OutputData[7] <= OutputData[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 |Em_Robot|EmRobot_TOP:top|EmRobot_Communicate:communicate|FIFO:tx_fifo
 sysclk => ram.we_a.CLK
+sysclk => ram.waddr_a[4].CLK
 sysclk => ram.waddr_a[3].CLK
 sysclk => ram.waddr_a[2].CLK
 sysclk => ram.waddr_a[1].CLK
@@ -2636,7 +2639,7 @@ Request => Mux19.IN2
 Request => Mux20.IN2
 Request => Mux21.IN2
 FifoEmp <= Equal2.DB_MAX_OUTPUT_PORT_TYPE
-FifoFull <= Equal3.DB_MAX_OUTPUT_PORT_TYPE
+FifoFull <= <GND>
 OutputData[0] <= OutputData[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 OutputData[1] <= OutputData[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 OutputData[2] <= OutputData[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
