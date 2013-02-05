@@ -15,7 +15,7 @@ module FIFO(
 				FifoFull,
 				OutputData);
 parameter WIDTH=8;
-parameter DEPTH=16;
+parameter DEPTH=32;
 
 input sysclk,reset,Request,Write;
 input [WIDTH-1:0] InputData;

@@ -43,9 +43,6 @@ IR_FSM wfsm(
 			.wrdata(FifoData),
 			.fushcmd(FushCode)
 );
-
-
-
 pll1 u0(
 		.inclk0(sysclk),
 		//irda clock 50M 

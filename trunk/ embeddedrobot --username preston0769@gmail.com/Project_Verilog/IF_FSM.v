@@ -57,7 +57,8 @@ parameter UP 		= 8'h1b,
 			 STOP  	= 8'h12,
 			 A		   = 8'h0f,
 			 B 		= 8'h13,
-			 C 		= 8'h10;
+			 C 		= 8'h10,
+			 PACK    = 8'h17;
 			 
 always@(posedge sysclk)
 begin
@@ -164,6 +165,11 @@ begin
 				C: begin
 						CmdList[39:24] <= 16'h8084;
 						CntSet 		<= 4'h2;
+						nextstate 	<= CMD;
+						end
+				PACK:begin
+						CmdList[39:16] <= 24'h940102;
+						CntSet 		<= 4'h3;
 						nextstate 	<= CMD;
 						end
 				default:begin
